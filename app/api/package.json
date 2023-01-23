@@ -74,7 +74,7 @@
     "commander": "^8",
     "cookie": "^0",
     "env-schema": "^3",
-    "fastify": "^3",
+    "fastify": "^4",
     "fastify-oas": "^3",
     "jose": "^3",
     "libphonenumber-js": "^1",
