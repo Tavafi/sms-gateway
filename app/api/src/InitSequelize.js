@@ -223,7 +223,7 @@ class Models {
         .update([Date.now().toString(36), Math.random().toString()].join(':'))
         .digest('base64')
         .replace(/[^a-z0-9]/gi, '')
-        .substr(0, 64);
+        .substring(0, 64);
   }
 
   getEntities() {

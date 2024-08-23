@@ -4,7 +4,7 @@ class Send {
   /**
    * @param {Object} container
    * @param {import('fastify').FastifyInstance} container.fastify
-   * @param {import('sequelize').ModelCtor<import('sequelize').Model>} container.UserEntity
+   * @param {import('sequelize').ModelStatic<import('sequelize').Model>} container.UserEntity
    * @param {import('../Core/JWT')} container.JWT
    * @param {import('../../addon').Config} container.Config
    */

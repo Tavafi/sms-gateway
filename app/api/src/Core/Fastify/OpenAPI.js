@@ -24,7 +24,7 @@ class OpenAPI {
   /**
    * @param {import('fastify').FastifyInstance} fastify
    * @param {Object} container
-   * @param {import('sequelize').ModelCtor<import('sequelize').Model>} container.UserEntity
+   * @param {import('sequelize').ModelStatic<import('sequelize').Model>} container.UserEntity
    * @param {import('../JWT')} container.JWT
    * @param {import('../../../addon').Config} container.Config
    */

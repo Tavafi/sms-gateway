@@ -6,7 +6,7 @@ class LocalServer {
   /**
    * @param {Object} container
    * @param {import('fastify').FastifyInstance} container.fastify
-   * @param {import('sequelize').ModelCtor<import('sequelize').Model>} container.LocalEntity
+   * @param {import('sequelize').ModelStatic<import('sequelize').Model>} container.LocalEntity
    * @param {Object.<string, any>} container.Config
    */
   constructor({ fastify, LocalEntity, Config }) {

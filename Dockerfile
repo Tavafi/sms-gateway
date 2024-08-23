@@ -1,5 +1,5 @@
 # Copyright(c) 2021 aasaam software development group
-FROM node:15-buster-slim
+FROM ghcr.io/aasaam/node-lts-plus:latest
 
 LABEL org.label-schema.name="sms-gateway" \
       org.label-schema.description="Wrapper service for sending, logging and testing Short Message Service(SMS)" \

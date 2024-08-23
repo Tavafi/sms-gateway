@@ -4,7 +4,7 @@ class UserNormal {
   /**
    * @param {Object} container
    * @param {import('fastify').FastifyInstance} container.fastify
-   * @param {import('sequelize').ModelCtor<import('sequelize').Model>} container.UserEntity
+   * @param {import('sequelize').ModelStatic<import('sequelize').Model>} container.UserEntity
    */
   constructor({ fastify, UserEntity }) {
     fastify.route({

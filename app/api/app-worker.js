@@ -1,3 +1,4 @@
+const { setTimeout: sleep } = require('node:timers/promises');
 const { sortBy } = require('lodash');
 const fetch = require('node-fetch').default;
 const forever = require('async/forever');
@@ -17,9 +18,9 @@ const { log: consoleLog } = console;
 
   const Config = container.resolve('Config');
 
-  /** @type {import('sequelize').ModelCtor<import('sequelize').Model>} */
+  /** @type {import('sequelize').ModelStatic<import('sequelize').Model>} */
   const SendMessageEntity = container.resolve('SendMessageEntity');
-  /** @type {import('sequelize').ModelCtor<import('sequelize').Model>} */
+  /** @type {import('sequelize').ModelStatic<import('sequelize').Model>} */
   const SendMessageLogEntity = container.resolve('SendMessageLogEntity');
 
   let adapters = [];
@@ -42,15 +43,13 @@ const { log: consoleLog } = console;
     // eslint-disable-next-line sonarjs/cognitive-complexity
     async () => {
       // interval wait for next message
-      await new Promise((r) =>
-        setTimeout(r, Config.ASM_PUBLIC_SENDING_INTERVAL_MICROSECONDS),
-      );
+      await sleep(Config.ASM_PUBLIC_SENDING_INTERVAL_MICROSECONDS);
 
       // find message that [not delivered, not isSending and no much try]
       const sendMessage = await SendMessageEntity.findOne({
         where: {
           deliveredAt: {
-            [Op.lt]: new Date(0),
+            [Op.eq]: null,
           },
           isSending: false,
           try: {

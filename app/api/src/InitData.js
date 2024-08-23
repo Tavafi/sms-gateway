@@ -2,7 +2,7 @@ const { log } = console;
 
 class InitSequelize {
   constructor({ UserEntity, Config }) {
-    /** @type {import('sequelize').ModelCtor<import('sequelize').Model>} */
+    /** @type {import('sequelize').ModelStatic<import('sequelize').Model>} */
     this.UserEntity = UserEntity;
     this.Config = Config;
   }

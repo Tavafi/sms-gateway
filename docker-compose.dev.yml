@@ -1,12 +1,10 @@
 # Copyright(c) 2021 aasaam software development group
-version: "3"
-
 services:
   sms-gateway-api:
     container_name: sms-gateway-api
     depends_on:
       - sms-gateway-mariadb
-    image: node:15-buster-slim
+    image: ghcr.io/aasaam/node-lts-plus:latest
     working_dir: /app/api
     volumes:
       # development

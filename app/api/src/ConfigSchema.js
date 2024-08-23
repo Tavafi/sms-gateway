@@ -96,6 +96,12 @@ const ConfigSchema = {
       default: 14400,
     },
 
+    ASM_PUBLIC_DEFAULT_COUNTRY: {
+      description: 'Default country iso-code',
+      type: 'string',
+      default: 'IR',
+    },
+
     ASM_AUTH_HMAC_ALG: {
       type: 'string',
       description: 'Application authentication HMAC algorithm',

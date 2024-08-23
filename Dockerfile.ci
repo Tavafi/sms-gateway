@@ -1,4 +1,4 @@
 # Copyright(c) 2021 aasaam software development group
-FROM node:15-buster-slim
+FROM ghcr.io/aasaam/node-lts-plus:latest
 
 COPY ./app /app

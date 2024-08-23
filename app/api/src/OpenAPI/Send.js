@@ -4,9 +4,9 @@ class Send {
   /**
    * @param {Object} container
    * @param {import('fastify').FastifyInstance} container.fastify
-   * @param {import('sequelize').ModelCtor<import('sequelize').Model>} container.SendMessageEntity
+   * @param {import('sequelize').ModelStatic<import('sequelize').Model>} container.SendMessageEntity
    */
-  constructor({ fastify, SendMessageEntity }) {
+  constructor({ fastify, Config, SendMessageEntity }) {
     fastify.route({
       preValidation: fastify.userApiKeyCheck,
       url: fastify.openAPIBaseURL('/send'),
@@ -37,19 +37,22 @@ class Send {
         }
 
         const validPhones = {};
-
         mobiles.forEach((mobile) => {
           try {
-            const phoneNumber = parsePhoneNumber(mobile);
+            const phoneNumber = parsePhoneNumber(
+              mobile,
+              Config.ASM_PUBLIC_DEFAULT_COUNTRY || 'IR',
+            );
             if (phoneNumber.isValid() && phoneNumber.getType() === 'MOBILE') {
               validPhones[phoneNumber.number] = phoneNumber.country;
             }
             // eslint-disable-next-line no-empty
-          } catch (e) {}
+          } catch (_e) {}
         });
 
         const promises = [];
         const results = [];
+
         Object.keys(validPhones).forEach((mobile) => {
           promises.push(
             new Promise((resolve) => {

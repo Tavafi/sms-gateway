@@ -12,7 +12,7 @@ const { log } = console;
   const c = new ConfigClass(ConfigSchema, {});
   const container = await initContainer(c);
 
-  /** @type {import('sequelize').ModelCtor<import('sequelize').Model>} */
+  /** @type {import('sequelize').ModelStatic<import('sequelize').Model>} */
   const UserEntity = container.resolve('UserEntity');
 
   /** @type {import('./addon').Config} */
